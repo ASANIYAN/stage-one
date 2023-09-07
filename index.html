@@ -63,7 +63,7 @@
             const dayOfWeek = daysOfWeek[now.getDay()]; // getDay returns day of the week (0 to 6) of a date
 
             // current time in milliseconds
-            const currentTimeMilliseconds = now.getTime();
+            const currentTimeMilliseconds = now.getUTCMilliseconds();
 
             // display the day and time on the webpage in their respective elements
             document.getElementById('currentDayOfTheWeek').innerHTML = `<b> Current Day:</b>` + ' ' + dayOfWeek;
