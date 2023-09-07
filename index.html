@@ -68,9 +68,6 @@
             // display the day and time on the webpage in their respective elements
             document.getElementById('currentDayOfTheWeek').innerHTML = `<b> Current Day:</b>` + ' ' + dayOfWeek;
             document.getElementById('currentUTCTime').innerHTML = `<b> Current Time:</b>` + ' ' +  currentTimeMilliseconds;
-
-            // update funtion every second
-            setTimeout(getDateAndTime, 1000);
         }
 
         getDateAndTime();
