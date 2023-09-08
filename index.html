@@ -36,9 +36,9 @@
 
             <p data-testid="slackUserName"> <b> Slack Name: </b> Asaniyan </p>
 
-            <p data-testid="currentDayOfTheWeek" id="currentDayOfTheWeek"> Sunday </p>
+            <p data-testid="currentDayOfTheWeek"> Sunday </p>
 
-            <p data-testid="currentUTCTime" id="currentUTCTime"> 8:00 AM UTC </p>
+            <p data-testid="currentUTCTime"> 8:00 AM UTC </p>
 
             <p data-testid="myTrack"> <b> Track: </b> Frontend </p>
 
@@ -76,8 +76,8 @@
             const localTime = now.toLocaleTimeString('en-US', options);
 
             // display the day and time on the webpage in their respective elements
-            document.getElementById('currentDayOfTheWeek').innerHTML = `<b> Current Day:</b>` + ' ' + dayOfWeek;
-            document.getElementById('currentUTCTime').innerHTML =  `<b> Current UTC Time:</b>` + ' ' + '<u>Local Time</u>: ' + localTime + ' ' + "| <u>UTC Time</u>: "  +  currentTimeMilliseconds;
+            document.querySelector('[data-testid="currentDayOfTheWeek"]').innerHTML = `<b> Current Day:</b>` + ' ' + dayOfWeek;
+            document.querySelector('[data-testid="currentUTCTime"]').innerHTML =  `<b> Current UTC Time:</b>` + ' ' + '<u>Local Time</u>: ' + localTime + ' ' + "| <u>UTC Time</u>: "  +  currentTimeMilliseconds;
 
             // update funtion every second
             setTimeout(getDateAndTime, 1000);
