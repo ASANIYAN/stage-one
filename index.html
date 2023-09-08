@@ -16,6 +16,12 @@
             gap: 0.3125rem;
             font-size: 1.125rem;
         }
+
+        .flex {
+            display: flex;
+            gap: 0.3125rem;
+            align-items: center;
+        }
     </style>
 </head>
 <body>
@@ -34,13 +40,30 @@
                 >
             </section>
 
-            <p data-testid="slackUserName"> <b> Slack Name: </b> Asaniyan </p>
+            <section class="flex">
+                <p> <b> Slack Name: </b> </p>
+                <p data-testid="slackUserName"> Asaniyan </p>
+            </section>
 
-            <p data-testid="currentDayOfTheWeek"> Sunday </p>
+            <section class="flex">
+                <b> Current Day </b>
+                <p data-testid="currentDayOfTheWeek"> </p>
+            </section>
 
-            <p data-testid="currentUTCTime"> 8:00 AM UTC </p>
 
-            <p data-testid="myTrack"> <b> Track: </b> Frontend </p>
+            <section class="flex">
+                <p> <b> Current UTC Time: </b> </p>
+                <span> Local Time : </span>
+                <p id="local">  </p>
+                <span> UTC Time: </span>
+                <p data-testid="currentUTCTime"> </p>
+            </section>
+
+
+            <section class="flex">
+                <b> Track: </b>
+                <p data-testid="myTrack"> Frontend </p>
+            </section>
 
             <p
             >
@@ -76,8 +99,9 @@
             const localTime = now.toLocaleTimeString('en-US', options);
 
             // display the day and time on the webpage in their respective elements
-            document.querySelector('[data-testid="currentDayOfTheWeek"]').innerHTML = `<b> Current Day:</b>` + ' ' + dayOfWeek;
-            document.querySelector('[data-testid="currentUTCTime"]').innerHTML =  `<b> Current UTC Time:</b>` + ' ' + '<u>Local Time</u>: ' + localTime + ' ' + "| <u>UTC Time</u>: "  +  currentTimeMilliseconds;
+            document.querySelector('[data-testid="currentDayOfTheWeek"]').textContent = dayOfWeek;
+            document.querySelector('#local').textContent = localTime;
+            document.querySelector('[data-testid="currentUTCTime"]').textContent =  currentTimeMilliseconds;
 
             // update funtion every second
             setTimeout(getDateAndTime, 1000);
